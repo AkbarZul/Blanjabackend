@@ -1,95 +1,153 @@
-# Blanja-RESTful-API
+# Blanja-RESTfullAPI 
+berisi API sederhana untuk backend saja dibangun dengan node js menggunakan framework express js dan postman untuk testing.
 
-----------------
 
-## About The Project
-
-![](https://3.bp.blogspot.com/-4ZwQDCJTENo/XAopD6qwU1I/AAAAAAAAQsI/pZpGpNKQjGwR3nc67LN3CZKHzaTu_lpkwCLcBGAs/w1200-h630-p-k-no-nu/Blanja.png)
-
-Selamat datang di Blanja API. ini adalah dokumentasi api untuk eksplorasi data yang di generate dari aplikasi *[Postman](https://www.postman.com/)* .
-
-Projek ini adalah projek membuat sebuah Backend untuk halaman web [blanja.netlify.app](https://blanja.netlify.app/) yang mencakup beberapa Endpoint untuk bisa di konsumi sebagai data di bagian web *Blanja*.
-
-#### Built With
-
-- [ExpressJS](https://expressjs.com/)
-
-- [MySQL](https://www.mysql.com/)
-
-#### Flowchart API
-
-[Blanja - Google Drive](https://drive.google.com/file/d/1m2F4nPHiFctrc-3hsgHB-A6Sfht2NmqF/view?usp=sharing) - draw.io
-
-#### Scheme Database
-
-![ ](https://res.cloudinary.com/devloops7/image/upload/v1606172024/newBlanja/screenshot-localhost-2020.11.24-05_52_17_npornk.png)
-
----
-
-## Getting Started
-
-Berikut panduan untuk menjalankan projek ini secara lokal. untuk bisa menjalankan projek secara lokal adapun langkah-langkah yang harus diikuti.
-
-#### Prerequisites
-
-- npm
-  
-  ```text
-  npm install npm@latest -g
-  ```
-
-atau bisa menggunakan yarn
-
-- yarn
-  
-  ```text
-  npm install -g yarn
-  ```
-
-#### Installation
-
-1. Clone repository
-
-```textile
-git clone https://github.com/dhiyo7/Blanja-RESTful-API.git
+## dibangun dengan 
+* npm
+    [Node.js](https://nodejs.org/en/download/)
+* express js = 4.17.1
+```sh
+npm i express
 ```
 
-2. Install paket pendukung dalam `node_module`
-- dengan NPM
-
-```textile
-npm install
+* mysql = 2.18.1
+```sh 
+npm i mysql
 ```
 
-- dengan Yarn
 
-```textile
-yarn add
+
+### Endpoint
+1.GET
+* /products
+* /category
+* /product/id
+* /history
+* /products/new
+* /products/popular
+
+2.POST 
+* /products
+* body
+```sh 
+{"product_color": "", 
+"product_price": "", 
+"product_description": "", 
+"category_id": "", 
+"product_rating": "", 
+"product_color": "", 
+"product_size": "", 
+"product_total": "", 
+"product_condition": ""}
+```
+* response success
+```sh
+{
+  "message": "Data Success",
+  "status": 200,
+  "data": {
+    "id": 19,
+    "product_name": "compass gazalle",
+    "product_price": "600000",
+    "product_description": "celana levis luar kualitas atas",
+    "category_id": "2",
+    "product_rating": "4",
+    "product_color": "blue",
+    "product_size": "40",
+    "product_total": "1",
+    "product_condition": "new",
+    "product_create": "2020-11-25T05:58:58.944Z",
+    "product_update": "2020-11-25T05:58:58.944Z"
+  }
+}
 ```
 
-3. Konfigurasi Database , silahkan sesuaikan pada halaman index.js
-
-```js
-const db = mySQL.createConnection({
-    host: 'hostname',
-    user: 'user_mysql',
-    password: 'pass_mysql',
-    database: 'nama_db'
-})
+* response error
+```sh
+{
+  "message": "Data Error",
+  "status": 500
+}
 ```
 
-### Scheme API
+* /history
+* body
+```sh 
+{"name": "", 
+"description": "", 
+"price": "", 
+"id": "", 
+"size": "" , 
+"total": "", 
+"condition": ""}
+```
+* response success
+```sh
+{
+  "message": "Data Success",
+  "status": 200,
+  "data": {
+    "id": "2",
+    "name": "mantapsssss",
+    "description": "celana levis",
+    "price": "600000",
+    "rating": "4",
+    "color": "blue",
+    "size": "38",
+    "total": "1",
+    "p_condition": "new",
+    "created_at": "2020-11-25T05:59:51.386Z",
+    "update_at": "2020-11-25T05:59:51.386Z"
+  }
+}
+```
+* response error
+```sh
+{
+  "message": "Data Error",
+  "status": 500
+}
+```
 
-> untuk schema api dan documentasi silahkan klik link di bawah
-> 
-> - Conoth Guide API - [Guide API](https://github.com/dhiyo7/Blanja-RESTful-API/blob/main/SchemeAPI.md)
-> 
-> [BLANJA API - Publik](https://documenter.getpostman.com/view/6626576/TVewYPbM)
+3.PATCH
+* /product
+* body
+```sh 
+{"id": "", 
+"product_color": ""}
+```
+* response success
+```sh
+{
+  "message": "Data Success",
+  "status": 200,
+  "data": {
+    "msg": "Update Success",
+    "id": "15",
+    "product_color": "green",
+    "product_update": "2020-11-25T06:01:16.036Z"
+  }
+}
+```
 
-### Contribution
+* response error
+```sh
+{
+  "message": "Data Error",
+  "status": 500
+}
+```
 
-berkontribusi membuat komunitas open source menjadi tempat yang luar biasa untuk belajar, menginspirasi, dan berkreasi. dan dapat memajukan projek ini, sangat diperislahkan dan buat ***branch*** baru yah.
+* response not found
+```sh
+{
+  "msg": "Data Not Found",
+  "status": 404
+}
+```
 
-#### LICENSE
+4.DELETE
+* /products/delete/id
 
-Distributed under the MIT License. See [LICENSE](https://github.com/dhiyo7/Blanja-RESTful-API/blob/main/LICENSE) for more information.
+
+
