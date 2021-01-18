@@ -14,9 +14,9 @@ module.exports = {
         });
     },
     
-    updateAddress: (req, user_id) => {
+    updateAddress: (req, id, user_id) => {
         return new Promise((resolve, reject) => {
-            const queryString = "UPDATE address_customer SET ? WHERE ?"
+            const queryString = "UPDATE address_customer SET ? WHERE id = " + id
             db.query(queryString, [req, user_id], (err, data) => {
                 if(!err) {
                     resolve(data);

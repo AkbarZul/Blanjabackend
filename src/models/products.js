@@ -24,7 +24,7 @@ module.exports = {
       });
 
     return new Promise((resolve, reject) => {
-      const queryString = `SELECT p.id, p.product_name, c.category_name, s.size, cl.color_hexa, cd.conditions, p.product_price, p.product_qty, p.product_desc, p.product_photo,  AVG(rating) as rating FROM products as p
+      const queryString = `SELECT p.id, p.product_name, c.category_name, s.size, cl.color_hexa, cl.color_name, cd.conditions, p.product_price, p.product_qty, p.product_desc, p.product_photo,  AVG(rating) as rating FROM products as p
       INNER JOIN categories as c ON p.category_id = c.id_categories
       INNER JOIN size as s ON p.size_id = s.id
       INNER JOIN colors as cl ON p.color_id = cl.id
@@ -64,7 +64,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       // const queryString = `SELECT *, AVG(rating) as rating FROM products
       //   INNER JOIN ratings ON products.id = ratings.product_id WHERE products.id = ${params} GROUP BY products.id`;
-      const queryString = `SELECT p.id, p.product_name, c.category_name, s.size, cl.color_hexa, cd.conditions, p.product_price, p.product_qty, p.product_desc, p.product_photo,  AVG(rating) as rating FROM products as p
+      const queryString = `SELECT p.id, p.product_name, c.category_name, s.size, cl.color_hexa, cl.color_name, cd.conditions, p.product_price, p.product_qty, p.product_desc, p.product_photo,  AVG(rating) as rating FROM products as p
       INNER JOIN categories as c ON p.category_id = c.id_categories
       INNER JOIN size as s ON p.size_id = s.id
       INNER JOIN colors as cl ON p.color_id = cl.id
@@ -149,7 +149,7 @@ module.exports = {
 
   getProductByUserId: (user_id) => {
     return new Promise((resolve, reject) => {
-      const queryString = `SELECT p.id, p.product_name, c.category_name, s.size, cl.color_hexa, cd.conditions, p.product_price, p.product_qty, p.product_desc, p.product_photo,  AVG(rating) as rating FROM products as p
+      const queryString = `SELECT p.id, p.product_name, c.category_name, s.size, cl.color_hexa, cl.color_name, cd.conditions, p.product_price, p.product_qty, p.product_desc, p.product_photo,  AVG(rating) as rating FROM products as p
       INNER JOIN categories as c ON p.category_id = c.id_categories
       INNER JOIN size as s ON p.size_id = s.id
       INNER JOIN colors as cl ON p.color_id = cl.id

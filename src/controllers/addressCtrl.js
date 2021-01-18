@@ -24,10 +24,11 @@ module.exports = {
     updateAddress: (req, res) => {
         const { body } = req;
         const { id } = req.params;
+        const user_id = req.decodedToken.id;
         const insertBody = {
             ...body,
         };
-        addressCustModel.updateAddress(insertBody, req, user_id).then((data) => {
+        addressCustModel.updateAddress(insertBody, id, res, user_id).then((data) => {
             if (data.affectedRows === 0) {
                 res.status(404).json({
                     msg: "data not found",
