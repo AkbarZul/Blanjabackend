@@ -78,7 +78,7 @@ module.exports = {
               // const token = jwt.sign({email: data[0].email, level_id : data[0].level_id} , secret);
               const token = jwt.sign(payload, secret);
               // resolve({token, full_name:data[0].full_name, email: data[0].email, id: data[0].id});
-              resolve({token, full_name:data[0].full_name, email: data[0].email, user_id: data[0].id});
+              resolve({token, full_name:data[0].full_name, email: data[0].email, user_id: data[0].id, level: data[0].level_id});
               // console.log({id: data[0].id});
             }
           });

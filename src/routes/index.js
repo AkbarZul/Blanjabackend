@@ -12,6 +12,8 @@ const ratingRoute = require("./ratings");
 const historyTransactionsRouter = require("./historyTransactions");
 const authRouter = require("./auth");
 const addressCustRouter = require("./addressRou");
+const conditionRouter = require("./condition");
+const statusRouter = require("./status")
 
 mainRouter.use("/", welcomeRouter);
 mainRouter.use("/categories", categoriesRouter);
@@ -24,5 +26,7 @@ mainRouter.use("/ratings", ratingRoute);
 mainRouter.use("/history", historyTransactionsRouter);
 mainRouter.use("/auth", authRouter);
 mainRouter.use("/address", addressCustRouter);
+mainRouter.use("/condition", conditionRouter);
+mainRouter.use("/status", statusRouter);
 
 module.exports = mainRouter;

@@ -16,7 +16,7 @@ module.exports = {
     
     updateAddress: (req, id, user_id) => {
         return new Promise((resolve, reject) => {
-            const queryString = "UPDATE address_customer SET ? WHERE id = " + id
+            const queryString = "UPDATE address_customer SET ? WHERE id_address = " + id
             db.query(queryString, [req, user_id], (err, data) => {
                 if(!err) {
                     resolve(data);
@@ -30,7 +30,7 @@ module.exports = {
 
     getAddressByUser: (user_id) => {
         return new Promise((resolve, reject) => {
-            const queryString = "SELECT a.id, a.fullname, a.address, a.city, a.zip_code, a.country, u.id FROM address_customer AS a JOIN users AS u on u.id = a.user_id WHERE user_id = " + user_id;
+            const queryString = "SELECT a.id_address, a.fullname, a.address, a.city, a.zip_code, a.country, u.id FROM address_customer AS a JOIN users AS u on u.id = a.user_id WHERE user_id = " + user_id;
             db.query(queryString, user_id, (err, data) => {
                 if(!err) {
                     resolve(data)
