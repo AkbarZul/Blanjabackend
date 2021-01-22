@@ -14,6 +14,7 @@ const authRouter = require("./auth");
 const addressCustRouter = require("./addressRou");
 const conditionRouter = require("./condition");
 const statusRouter = require("./status")
+const orders = require("./orders");
 
 mainRouter.use("/", welcomeRouter);
 mainRouter.use("/categories", categoriesRouter);
@@ -28,5 +29,6 @@ mainRouter.use("/auth", authRouter);
 mainRouter.use("/address", addressCustRouter);
 mainRouter.use("/condition", conditionRouter);
 mainRouter.use("/status", statusRouter);
+mainRouter.use("/orders", orders);
 
 module.exports = mainRouter;
