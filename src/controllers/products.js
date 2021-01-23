@@ -51,7 +51,7 @@ module.exports = {
     const level = req.decodedToken.level_id;
     const filepath = JSON.stringify(
       req.files.map(
-        (e) => 'http://192.168.1.4:9005' + "/image" + "/" + e.filename + " "
+        (e) => 'http://192.168.1.3:9005' + "/image" + "/" + e.filename + " "
       )
     );
 
@@ -83,7 +83,7 @@ module.exports = {
     // console.log(level);
     const singlePath = JSON.stringify(
       req.files.map(
-        (e) => 'http://192.168.1.4:9005' + "/image" + "/" + e.filename + " "
+        (e) => 'http://192.168.1.3:9005' + "/image" + "/" + e.filename + " "
       )
     );
     const insertBody = { ...body, product_photo: singlePath };
